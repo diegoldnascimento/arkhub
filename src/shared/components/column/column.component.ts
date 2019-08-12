@@ -18,6 +18,7 @@ export class ColumnComponent implements OnInit {
     @Input() headerTitle: string;
     @Input() headerIcon: string;
     @Input() headerUsername: string
+    @Input() headerLink: string = "";
     @Input() headerLinks = [];
     @Input() stream: string = "";
     @Input() streams;
