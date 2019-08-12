@@ -1,0 +1,136 @@
+@import '../../../assets/scss/mixins/mixins';
+
+.column {
+    transition: box-shadow .25s ease-in-out 0;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    overflow: hidden;
+    width: 330px;
+    height: 100%;
+    margin: 0 6px 0 0;
+    background-color: #fff;
+    font-size: 1rem;
+    white-space: normal; background-color: #ffffff;
+    box-shadow: #dadada 1px 1px 10px;
+    height: calc(100vh - 40px);
+    margin: 10px 5px 0 5px;
+    border-radius: 5px;
+
+    &.is-focused {
+        box-shadow:0 0 0 5px #c9292c;
+    }
+
+    .column-header {
+        margin: 0 10px;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.25882352941176473);
+        margin-bottom: 5px;
+
+        .column-heading {
+            @include font-proxima-nova-bold();
+            max-height: 50px;
+            height: 50px;
+            overflow: hidden;
+            line-height: 3.2em;
+            font-size: 16px;
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .column-username {
+                @include font-proxima-nova-regular();
+                color: rgb(56, 68, 77);
+                font-weight: 400;
+                font-size: 13px;
+                padding: 3px 0 0 4px;
+            }
+        }
+
+        .column-header-links {
+            float: right;
+            margin-top: 10px;
+
+            .bridgechain-header-links {
+                .bridgechain-logo {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+    }
+
+    .column-content {
+        overflow: auto;
+        height: 100%;
+        padding: 0 10px;
+
+        a {
+            text-decoration: none;
+        }
+
+        .stream-item {
+            padding-left: 26px;
+            line-height: 1.28578em;
+            word-break: break-word;
+            word-wrap: break-word;
+            display: block;
+            position: relative;
+            margin-left: 20px;
+            border-bottom: 1px solid rgba(204, 204, 204, 0.25882352941176473);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+
+            .stream-title {
+                @include font-proxima-nova-bold();
+                margin-top: 0;
+                margin-bottom: 10px;
+
+                a {
+                    color: #525252;
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+            }
+
+            .stream-logo {
+                position: absolute;
+                top: 0;
+                left: -20px;
+                width: 30px;
+            }
+
+            .stream-header {
+                .stream-name {
+                    overflow: hidden;
+                    margin-bottom: 10px;
+
+                    .name {
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin: 0;
+                        display: inline-block;
+                        float: left;
+                    }
+
+                    .date {
+                        color: #8899a6;
+                        font-size: 12px;
+                        text-align: right;
+                        display: inline-block;
+                        float: right;
+                    }
+                }
+            }
+        }
+
+        .description {
+            font-size: 14px;
+            color: #525252;
+        }
+    }
+
+}
