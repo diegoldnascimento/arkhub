@@ -1,7 +1,7 @@
 # ArkHub
 
 <p align="center">
-    <img src="https://github.com/diegoldn/arkhub/raw/master/screenshot.png" />
+    <img src="https://github.com/diegoldn/arkhub/raw/master/banner.png" />
 </p>
 
 > Lead Maintainer: [Diego Lopes](https://github.com/diegoldn)
