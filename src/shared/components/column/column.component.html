@@ -43,23 +43,17 @@
                     </time>
                 </h2>
                 <h3 class="stream-title">
-                    <a [href]="stream.link" target="_blank" title="Click here to see this post">
-                        {{stream.title}}
-                    </a>
+                    {{stream.title}}
                 </h3>
 
                 <img [src]="stream.logo" class="stream-logo">
             </header>
             <div class="stream-item-content">
-                <a [href]="stream.link" target="_blank" title="Click here to see this post">
-                    <p class="description">
-                        {{stream.description}}
-                    </p>
-                </a>
+                <p class="description">
+                    {{stream.description}}
+                </p>
 
-                <a [href]="stream.link" target="_blank" title="Click here to see this post">
-                    <img [src]="stream.thumbnail" width="100%" alt="">
-                </a>
+                <img [src]="stream.thumbnail" width="100%" alt="">
             </div>
             <footer class="stream-footer">
 
