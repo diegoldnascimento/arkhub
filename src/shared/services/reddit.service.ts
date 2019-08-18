@@ -10,7 +10,7 @@ import * as moment from 'moment';
 })
 export class RedditService {
 
-    private api = 'https://www.reddit.com/r/arkecosystem/hot/.json';
+    private api = 'https://www.reddit.com/r/arkecosystem/.json';
     private posts = new BehaviorSubject([]);
     private refreshTime = 30;
 

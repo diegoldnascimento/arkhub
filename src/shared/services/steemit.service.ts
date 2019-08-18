@@ -4,14 +4,30 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UtilsService } from './utils.service';
 import * as moment from 'moment';
 import { Medium } from '../models/medium.model';
+import * as showdown from 'showdown';
+const converter = new showdown.Converter();
 declare let steem: any;
+
+const classMap = {
+    img: 'img-responsive'
+}
+
+  const bindings = Object.keys(classMap)
+    .map(key => ({
+      type: 'output',
+      regex: new RegExp(`<${key}(.*)>`, 'g'),
+      replace: `<${key} class="${classMap[key]}" $1>`
+    }));
+
+const conv = new showdown.Converter({
+extensions: [...bindings]
+});
 
 @Injectable({
   providedIn: 'root'
 })
 export class SteemitService {
 
-    private api = 'https://api.rss2json.com/v1/api.json?rss_url=https://blog.ark.io/feed';
     private posts = new BehaviorSubject([]);
     private refreshTime = 30;
 
@@ -40,7 +56,7 @@ export class SteemitService {
                     logo: 'https://steemitimages.com/DQmX2GQsxyaVnqaEFgYygvB6ABUXbpKSsRCupdXu5onAt9y/2017-11-01%2006.28.27.jpg',
                     title: post.title,
                     author: post.author,
-                    description: this.utils.wordTrim(post.body, 150, '...'),
+                    description: conv.makeHtml(this.utils.wordTrim(post.body, 250, '...')),
                     pubDate: this.utils.time2TimeAgo(moment(post.created).format('X')),
                     link: `https://steemit.com${post.url}`
                 };
