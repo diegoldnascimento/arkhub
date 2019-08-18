@@ -12,5 +12,23 @@
                 ArkHub made with <i class="fa fa-heart text-red"></i> by <a href="https://github.com/diegoldn/arkhub/" target="_blank">Diego</a>
             </div>
         </ngx-smart-modal>
+
+        <ngx-smart-modal #multiFilterModal identifier="multiFilterModal" customClass="medium-modal">
+            <div class="multiFilterModal">
+                <h1>Choose a Bridgechain</h1>
+
+                <div class="filter">
+                    <div class="filter-column js-filter-icon" data-bridgechain="Ark">
+                        <img src="./assets/img/ark/icon256x256.png" data-color="#c9292c" width="35" class="icon">
+                        <span>Ark</span>
+                    </div>
+                    <div class="filter-column js-filter-icon" data-bridgechain="nOS">
+                        <img src="./assets/img/nOS/icon256x256.png" data-color="#8e9af9" width="35" class="icon">
+                        <span>nOS</span>
+                    </div>
+                </div>
+                <span class="clear">clear filters</span>
+            </div>
+        </ngx-smart-modal>
     </footer>
 </div>
