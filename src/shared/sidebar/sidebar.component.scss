@@ -1,3 +1,5 @@
+@import './../../assets/scss/colors';
+
 .sidebar {
     background-color: #353956;
 
@@ -20,17 +22,18 @@
     box-shadow: #dadada 1px 1px 10px;
 
     .logo {
-        background-color: #c9292c;
+        background-color: $ark-color-brand;
         text-align: center;
         height: 60px;
+        cursor: pointer;
 
         img {
             display: inline-block;
             position: relative;
-            background-color: #c9292c;
-            border: 1px solid #c9292c;
+            background-color: $ark-color-brand;
+            border: 1px solid $ark-color-brand;
             border-radius: 36px;
-            color: #c9292c;
+            color: $ark-color-brand;
             cursor: pointer;
             font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
             font-size: 14px;
@@ -40,7 +43,30 @@
             padding: 7.5px 5px;
             margin: 0 auto;
             vertical-align: middle;
-            margin-top: 6px;
+            margin-top: 10px;
+        }
+    }
+
+    .filter {
+        text-align: center;
+        height: 60px;
+        top: 0;
+        padding: 5px;
+        position: absolute;
+        left: 60px;
+        height: 60px;
+        width: 175px;
+        background-color: #fff;
+        box-shadow: 1px 1px 1px #e0e2e7;
+
+        .icon {
+            margin-left: 10px;
+            margin-right: 10px;
+            background: none;
+            border: none;
+            width: 35px;
+            margin-top: 7px;
+            cursor: pointer;
         }
     }
 
