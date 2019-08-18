@@ -18,7 +18,7 @@ export class MediumService {
     constructor(
         private httpClient: HttpClient,
         private utils: UtilsService
-    ) { }
+    ) {}
 
     fetchPosts() {
         return this.httpClient.get(this.api).subscribe(async (res: Medium) => {
@@ -28,6 +28,11 @@ export class MediumService {
                 for (const [i, item] of res.items.entries()) {
                     item.description = this.utils.wordTrim(this.utils.strip(item.description), 150, '...');
                     item.logo = 'https://miro.medium.com/fit/c/48/48/1*6_fgYnisCa9V21mymySIvA.png';
+                    if (this.bridgechain === 'nOS') {
+                        item.logo = './assets/img/nOS/icon256x256.png';
+                    } else if (this.bridgechain === 'Ark') {
+                        item.logo = './assets/img/ark/icon256x256.png';
+                    }
                     item.pubDate = this.utils.time2TimeAgo(moment(item.pubDate).format('X'));
                     // console.log(item);
                     posts.push(item);
@@ -46,8 +51,8 @@ export class MediumService {
     }
 
     refresh() {
-        /* setTimeout(() => {
+        /*setInterval(() => {
             this.fetchPosts();
-        }, this.refreshTime * 1000); */
+        }, this.refreshTime * 1000);*/
     }
 }
