@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 $color-overlay: rgba(0, 0, 0, .7);
 $dialog-position-top: 20%;
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~ngx-smart-modal/ngx-smart-modal";
 @import 'assets/scss/core';
 
@@ -50,5 +50,34 @@ body {
     a {
         text-decoration: none;
         color: #535335;
+    }
+}
+
+.multiFilterModal {
+    .filter {
+        display: flex;
+        flex: 1;
+        text-align: center;
+
+        .filter-column {
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+
+            .icon {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .clear {
+        color: $ark-color-brand;
+        margin-top: 20px;
+        display: inline-block;
+        cursor: pointer;
+        border-bottom: 1px solid $ark-color-brand;
+        padding-bottom: 3px;
     }
 }
