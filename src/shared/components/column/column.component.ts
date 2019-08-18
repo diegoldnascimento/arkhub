@@ -2,13 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MediumService } from '../../services/medium.service';
 import { SteemitService } from './../../services/steemit.service';
 import { RedditService } from './../../services/reddit.service';
+import { TheArkCryptoPodcastService } from './../../services/thearkcryptopodcast.service';
+import { SafeHtmlPipe } from 'src/shared/pipes/safe-html.pipe';
+import { TwitterService } from './../../services/twitter.service';
 
 @Component({
     selector: 'app-column',
     templateUrl: './column.component.html',
     styleUrls: ['./column.component.scss'],
     providers: [
-        MediumService
+        MediumService,
+        SafeHtmlPipe
     ]
 })
 export class ColumnComponent implements OnInit {
@@ -21,20 +25,27 @@ export class ColumnComponent implements OnInit {
     @Input() headerLink: string = "";
     @Input() headerLinks = [];
     @Input() stream: string = "";
+    @Input() streamName: string = "";
     @Input() streams;
     @Input() reference = "";
 
     constructor(
         private mediumService: MediumService,
         private steemitService: SteemitService,
-        private redditService: RedditService
-    ) { }
+        private redditService: RedditService,
+        private thearkcryptopodcastService: TheArkCryptoPodcastService,
+        private twitterService: TwitterService
+    ) {}
 
     ngOnInit() {
         this.fetchStream();
     }
 
     fetchStream() {
+        this.streamName = this.stream;
+
+        this.twitterService.fetchPosts();
+
         switch(this.getStream()) {
             case 'medium':
                 if (this.bridgechain === 'nOS') {
@@ -42,6 +53,7 @@ export class ColumnComponent implements OnInit {
                 }
                 this.mediumService.bridgechain = this.bridgechain;
                 this.mediumService.fetchPosts();
+                this.mediumService.refresh();
                 this.streams = this.mediumService.getPosts();
                 break;
             case 'steemit':
@@ -51,6 +63,10 @@ export class ColumnComponent implements OnInit {
             case 'reddit':
                 this.redditService.fetchPosts();
                 this.streams = this.redditService.getPosts();
+                break;
+            case 'thearkcryptopodcast':
+                this.thearkcryptopodcastService.fetchPosts();
+                this.streams = this.thearkcryptopodcastService.getPosts();
                 break;
         }
     }

@@ -1,4 +1,5 @@
 @import '../../../assets/scss/mixins/mixins';
+@import '../../../assets/scss/_colors';
 
 .column {
     transition: box-shadow .25s ease-in-out 0;
@@ -19,7 +20,7 @@
     border-radius: 5px;
 
     &.is-focused {
-        box-shadow:0 0 0 5px #c9292c;
+        box-shadow:0 0 0 5px $ark-color-brand;
     }
 
     .column-header {
@@ -72,7 +73,7 @@
         }
 
         .stream-item {
-            padding-left: 26px;
+            padding-left: 20px;
             line-height: 1.28578em;
             word-break: break-word;
             word-wrap: break-word;
@@ -83,6 +84,12 @@
             padding-bottom: 10px;
             margin-bottom: 15px;
             cursor: pointer;
+
+            .description {
+                img {
+                    width: 100%;
+                }
+            }
 
             .stream-title {
                 @include font-proxima-nova-bold();
@@ -125,12 +132,50 @@
                     }
                 }
             }
+
+            .audio-player {
+                margin-bottom: 25px;
+
+                .ngx-basic-audio-player {
+
+                }
+            }
+
+
         }
 
         .description {
             font-size: 14px;
             color: #525252;
+            margin: 10px 0;
         }
     }
 
+}
+
+
+:host ::ng-deep .ngx-basic-audio-player {
+    background: #545454;
+    min-width: auto !important;
+
+    .play-track, .pause-track {
+        color: #fff;
+    }
+
+    .ngx-basic-audio-player-duration span {
+        font-size: 12px !important;
+        color: #fff;
+    }
+
+    .mat-slider-thumb {
+        background: #fff;
+    }
+
+    .mat-slider-horizontal {
+        min-width: 110px;
+    }
+
+    .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
+        background-color: $ark-color-brand;
+    }
 }
