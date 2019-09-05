@@ -5,18 +5,17 @@ import { UtilsService } from './utils.service';
 import * as moment from 'moment';
 import { Medium } from '../models/medium.model';
 import * as showdown from 'showdown';
-const converter = new showdown.Converter();
 declare let steem: any;
 
 const classMap = {
     img: 'img-responsive'
-}
+};
 
-  const bindings = Object.keys(classMap)
+const bindings = Object.keys(classMap)
     .map(key => ({
-      type: 'output',
-      regex: new RegExp(`<${key}(.*)>`, 'g'),
-      replace: `<${key} class="${classMap[key]}" $1>`
+        type: 'output',
+        regex: new RegExp(`<${key}(.*)>`, 'g'),
+        replace: `<${key} class="${classMap[key]}" $1>`
     }));
 
 const conv = new showdown.Converter({

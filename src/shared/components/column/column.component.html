@@ -17,6 +17,10 @@
         </div>
     </header>
     <div class="column-content">
+        <!-- Chenged here -->
+        <!--<a class="twitter-timeline" data-theme="light" href="https://twitter.com/ArkEcosystem?ref_src=twsrc%5Etfw">Tweets by ArkEcosystem</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=ArkEcosystem&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #ArkEcosystem</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+
         <article class="stream-item" *ngFor="let stream of streams | async">
             <header class="stream-header" (click)="redirect(stream.link)">
                 <h2 class="stream-name">
