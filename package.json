@@ -30,7 +30,7 @@
     "@steemit/rpc-auth": "github:steemit/rpc-auth",
     "@types/jquery": "^3.3.31",
     "font-awesome": "git+https://github.com/bhjortsberg/Font-Awesome.git",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ngx-audio-player": "^8.0.1",
     "ngx-smart-modal": "^7.1.1",
