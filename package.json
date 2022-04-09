@@ -31,7 +31,7 @@
     "@types/jquery": "^3.3.31",
     "font-awesome": "git+https://github.com/bhjortsberg/Font-Awesome.git",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-audio-player": "^8.0.1",
     "ngx-smart-modal": "^7.1.1",
     "ngx-tooltip": "0.0.9",
